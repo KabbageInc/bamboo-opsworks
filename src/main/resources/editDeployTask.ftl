@@ -1,0 +1,5 @@
+[@ww.textfield labelKey="bamboo-opsworks.stack_id" name="stack_id" required="true"/]
+[@ww.textfield labelKey="bamboo-opsworks.app_id" name="app_id" required="true"/]
+[@ww.textfield labelKey="bamboo-opsworks.profile" name="profile"/]
+[@ww.textfield labelKey="bamboo-opsworks.access_key_id" name="access_key_id"/]
+[@ww.password labelKey="bamboo-opsworks.secret_access_key" name="secret_access_key"/]

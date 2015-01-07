@@ -1,0 +1,5 @@
+[@ww.label labelKey="bamboo-opsworks.stack_id" name="stack_id"/]
+[@ww.label labelKey="bamboo-opsworks.app_id" name="app_id"/]
+[@ww.label labelKey="bamboo-opsworks.profile" name="profile"/]
+[@ww.label labelKey="bamboo-opsworks.access_key_id" name="access_key_id"/]
+[@ww.label labelKey="bamboo-opsworks.secret_access_key" name="secret_access_key" value="********"/]
