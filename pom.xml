@@ -103,7 +103,7 @@
     
     <scm>
     	<url>https://github.com/KabbageInc/bamboo-opsworks</url>
-    	<connection>scm:git:git://github.com/KabbageInc/bamboo-opsworks</connection>
+    	<connection>scm:git:https://github.com/KabbageInc/bamboo-opsworks</connection>
       <tag>v1.0</tag>
   </scm>
     
