@@ -8,17 +8,18 @@ import com.atlassian.bamboo.collections.ActionParametersMap;
 import com.atlassian.bamboo.task.AbstractTaskConfigurator;
 import com.atlassian.bamboo.task.TaskDefinition;
 import com.atlassian.bamboo.utils.error.ErrorCollection;
+import com.kabbage.bamboo.aws.AWSConstants;
 import com.opensymphony.xwork2.TextProvider;
 
 public class DeployTaskConfigurator extends AbstractTaskConfigurator {
 
 	private TextProvider textProvider;
 	private String[] fields = new String[] {
-			DeployTaskConstants.STACK_ID,
-			DeployTaskConstants.APP_ID,
-			DeployTaskConstants.PROFILE,
-			DeployTaskConstants.ACCESS_KEY_ID,
-			DeployTaskConstants.SECRET_ACCESS_KEY
+			DeployTaskConstants.STACK_NAME,
+			DeployTaskConstants.APP_NAME,
+			AWSConstants.PROFILE,
+			AWSConstants.ACCESS_KEY_ID,
+			AWSConstants.SECRET_ACCESS_KEY
 	};
 	
 	public void setTextProvider(final TextProvider textProvider)
@@ -68,23 +69,23 @@ public class DeployTaskConfigurator extends AbstractTaskConfigurator {
 	{
 		super.validate(params, errorCollection);
 
-		if (StringUtils.isEmpty(params.getString(DeployTaskConstants.STACK_ID)))
+		if (StringUtils.isEmpty(params.getString(DeployTaskConstants.STACK_NAME)))
 		{
-			errorCollection.addError(DeployTaskConstants.STACK_ID, textProvider.getText("bamboo-opsworks.stack_id.required"));
+			errorCollection.addError(DeployTaskConstants.STACK_NAME, textProvider.getText("bamboo-opsworks.stack_name.required"));
 		}
-		if (StringUtils.isEmpty(params.getString(DeployTaskConstants.APP_ID)))
+		if (StringUtils.isEmpty(params.getString(DeployTaskConstants.APP_NAME)))
 		{
-			errorCollection.addError(DeployTaskConstants.APP_ID, textProvider.getText("bamboo-opsworks.app_id.required"));
+			errorCollection.addError(DeployTaskConstants.APP_NAME, textProvider.getText("bamboo-opsworks.app_name.required"));
 		}
 		
-		if(StringUtils.isEmpty(params.getString(DeployTaskConstants.ACCESS_KEY_ID))
-				&& !StringUtils.isEmpty(params.getString(DeployTaskConstants.SECRET_ACCESS_KEY))) {
-			errorCollection.addError(DeployTaskConstants.ACCESS_KEY_ID, textProvider.getText("bamboo-opsworks.access_key_id.required_with_secret"));
+		if(StringUtils.isEmpty(params.getString(AWSConstants.ACCESS_KEY_ID))
+				&& !StringUtils.isEmpty(params.getString(AWSConstants.SECRET_ACCESS_KEY))) {
+			errorCollection.addError(AWSConstants.ACCESS_KEY_ID, textProvider.getText("bamboo-opsworks.access_key_id.required_with_secret"));
 		}
 		
-		if(StringUtils.isEmpty(params.getString(DeployTaskConstants.SECRET_ACCESS_KEY))
-				&& !StringUtils.isEmpty(params.getString(DeployTaskConstants.ACCESS_KEY_ID))) {
-			errorCollection.addError(DeployTaskConstants.SECRET_ACCESS_KEY, textProvider.getText("bamboo-opsworks.secret_access_key.required_with_access"));
+		if(StringUtils.isEmpty(params.getString(AWSConstants.SECRET_ACCESS_KEY))
+				&& !StringUtils.isEmpty(params.getString(AWSConstants.ACCESS_KEY_ID))) {
+			errorCollection.addError(AWSConstants.SECRET_ACCESS_KEY, textProvider.getText("bamboo-opsworks.secret_access_key.required_with_access"));
 		}
 	}
 }
