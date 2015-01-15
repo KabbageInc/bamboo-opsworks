@@ -11,7 +11,7 @@
     <resource type="i18n" name="i18n" location="opsworks"/>
 
     <!-- publish our component -->
-    <taskType key="deployTask" name="OpsWorks Deploy Task" class="com.kabbage.bamboo.opsworks.DeployTask">
+    <taskType key="deployTask" name="OpsWorks Deploy" class="com.kabbage.bamboo.opsworks.DeployTask">
         <description>Execute an OpsWorks deployment</description>
         <resource type="download" name="icon" location="images/taskIcon.png"/>
         <configuration class="com.kabbage.bamboo.opsworks.DeployTaskConfigurator"/>
