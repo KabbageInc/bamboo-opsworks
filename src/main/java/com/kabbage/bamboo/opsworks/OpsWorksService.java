@@ -82,7 +82,7 @@ public class OpsWorksService {
 		final DescribeDeploymentsResult result = opsWorks.describeDeployments(request);
 		
 		for (Deployment deployment : result.getDeployments()) {
-			if(deployment.getStatus().equals(status)) {
+			if(!deployment.getStatus().equals(status)) {
 				return false;
 			}
 		}

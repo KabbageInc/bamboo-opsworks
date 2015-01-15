@@ -38,7 +38,7 @@ public class DeployTask implements TaskType
 			buildLogger.addBuildLogEntry("Polling deployment status...");
 			
 			while(true) {
-				if(service.IsDeploymentComplete(deploymentId)) {
+				if(!service.IsDeploymentComplete(deploymentId)) {
 					break;
 				}
 				
